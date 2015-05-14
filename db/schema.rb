@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "first"
+    t.string   "last"
     t.string   "username"
-    t.string   "email"
+    t.string   "state"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"

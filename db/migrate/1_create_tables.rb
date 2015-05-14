@@ -2,8 +2,10 @@ class CreateTables < ActiveRecord::Migration
 
   def change
     create_table :users do |t|
+      t.string :first
+      t.string :last
       t.string :username
-      t.string :email
+      t.string :state
       t.string :password
       t.timestamps
     end
