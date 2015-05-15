@@ -58,3 +58,15 @@ end
 post '/profile' do
     redirect '/'
 end
+
+get '/pins/new' do
+  erb :new_pin
+end
+
+post '/pins/create' do
+    title = params[:title]
+    url = params[:url]
+    
+    current_user.pins.create(title: title, url: url)
+    redirect '/'
+end
