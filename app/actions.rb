@@ -51,11 +51,20 @@ post '/signup' do
     end
 end
 
-get '/profile' do
+
+get '/profile/edit' do
+    current_user
     erb :profile
 end
 
-post '/profile' do
+post '/profile/edit' do
+    first = params[:first]
+    last = params[:last]
+    username = params[:username]
+    state = params[:state]
+    password = params[:password]
+
+    current_user.update(first: first, last: last, username: username, state: state, password: password)
     redirect '/'
 end
 
