@@ -67,6 +67,11 @@ post '/pins/create' do
     title = params[:title]
     url = params[:url]
     
-    current_user.pins.create(title: title, url: url)
-    redirect '/'
+    new_pin = current_user.pins.create(title: title, url: url)
+    redirect "/pins/#{new_pin.id}"
+end
+
+get '/pins/:id' do
+    @pin = Pin.find(params[:id])
+    erb :pins
 end
