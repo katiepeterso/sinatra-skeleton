@@ -29,3 +29,18 @@ button {
 #signup {
   margin-left: 15.25em;
 }
+
+#pin-container {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 12px;
+}
+
+.pin {
+  margin: 10px;
+  width: 30%;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}

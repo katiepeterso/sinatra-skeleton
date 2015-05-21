@@ -1,14 +1,22 @@
-# Homepage (Root path)
+
 helpers do
     def current_user
       @current_user = User.find_by(id: session[:user_id]) if session[:user_id]
     end
-end  
+end 
 
+#Check whether or not there is a user logged
+before do
+    redirect '/login' if !current_user && request.path != '/login' && request.path !='/signup'
+end
+
+# Homepage (Root path)
 get '/' do
+    @pins = Pin.all.reverse
     erb :index
 end
 
+#User login form
 get '/login' do
     erb :login
 end
@@ -30,6 +38,7 @@ get '/logout' do
     erb :logout
 end
 
+#New user signup form
 get '/signup' do
     erb :signup
 end
@@ -51,7 +60,7 @@ post '/signup' do
     end
 end
 
-
+#User profile editor
 get '/profile/edit' do
     current_user
     erb :profile
@@ -68,6 +77,7 @@ post '/profile/edit' do
     redirect '/'
 end
 
+#New pins
 get '/pins/new' do
   erb :new_pin
 end

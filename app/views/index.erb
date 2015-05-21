@@ -1,1 +1,12 @@
 <h1>Home Page</h1>
+
+<section id="pin-container">
+  <% @pins.each do |pin| %>
+    <div class="pin">
+      <img src="<%= pin.url %>"><br>
+      <h2><%= pin.title %></h2>
+    </div>
+  <% end %>
+</section>
+
+<a href="/pins/new" class="btn btn-default">Add a Pin</a>
