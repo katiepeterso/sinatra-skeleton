@@ -32,15 +32,14 @@ button {
 
 #pin-container {
   -webkit-column-count: 3;
-  -webkit-column-gap: 12px;
+  -webkit-column-gap: 3em;
 }
 
 .pin {
-  margin: 10px;
+  margin: 2px;
   width: 30%;
 }
 
 img{
     width: 100%;
-    height: auto;
 }
