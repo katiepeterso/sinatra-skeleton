@@ -1,4 +1,5 @@
 
+=begin
 helpers do
     def current_user
       @current_user = User.find_by(id: session[:user_id]) if session[:user_id]
@@ -9,6 +10,7 @@ end
 before do
     redirect '/login' if !current_user && request.path != '/login' && request.path !='/signup'
 end
+=end
 
 # Homepage (Root path)
 get '/' do
@@ -16,6 +18,7 @@ get '/' do
     erb :index
 end
 
+=begin
 #User login form
 get '/login' do
     erb :login
@@ -94,3 +97,4 @@ get '/pins/:id' do
     @pin = Pin.find(params[:id])
     erb :pins
 end
+=end
